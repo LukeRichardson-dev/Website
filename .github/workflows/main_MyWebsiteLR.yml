@@ -49,6 +49,11 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
+    - id: string2
+      uses: ASzc/change-string-case-action@v2
+      with:
+        string: ${{ secrets.AzureAppService_ContainerUsername_b82b8e16cb944ca7a7f4dffc88af4999 }}
+
     - name: Deploy to Azure Web App
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
@@ -56,4 +61,4 @@ jobs:
         app-name: 'MyWebsiteLR'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_cb2fd9c0203140b0942ab782a8548d3d }}
-        images: 'mywebsite.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_b82b8e16cb944ca7a7f4dffc88af4999 }}/nodejsapp:${{ github.sha }}'
+        images: 'mywebsite.azurecr.io/${{ steps.string2.outputs.lowercase }}/nodejsapp:${{ github.sha }}'
