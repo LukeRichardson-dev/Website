@@ -31,7 +31,7 @@ jobs:
 
     - name: downcase REPO
       run: |
-        echo "REPO=${REPO},," >>${GITHUB_ENV}
+        echo "REPO=${{env.REPO}},," >>${GITHUB_ENV}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
