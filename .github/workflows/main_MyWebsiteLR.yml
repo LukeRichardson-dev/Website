@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: mywebsite.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_b82b8e16cb944ca7a7f4dffc88af4999 }}/nodejsapp:${{ github.sha }}
+        tags: mywebsite.azurecr.io/${{ lowercase(secrets.AzureAppService_ContainerUsername_b82b8e16cb944ca7a7f4dffc88af4999) }}/nodejsapp:${{ github.sha }}
         context: ./personal_website/
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'MyWebsiteLR'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_cb2fd9c0203140b0942ab782a8548d3d }}
-        images: 'mywebsite.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_b82b8e16cb944ca7a7f4dffc88af4999 }}/nodejsapp:${{ github.sha }}'
+        images: 'mywebsite.azurecr.io/${{ lowercase(secrets.AzureAppService_ContainerUsername_b82b8e16cb944ca7a7f4dffc88af4999) }}/nodejsapp:${{ github.sha }}'
