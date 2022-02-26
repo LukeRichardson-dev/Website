@@ -9,12 +9,12 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  REPO: ${{ secrets.AzureAppService_ContainerUsername_b82b8e16cb944ca7a7f4dffc88af4999 }}
+
 jobs:
   build:
     runs-on: 'ubuntu-latest'
-
-    env:
-      REPO: ${{ secrets.AzureAppService_ContainerUsername_b82b8e16cb944ca7a7f4dffc88af4999 }}
 
     steps:
     - uses: actions/checkout@v2
