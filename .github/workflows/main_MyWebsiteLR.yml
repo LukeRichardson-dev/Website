@@ -13,9 +13,10 @@ jobs:
   build:
     runs-on: 'ubuntu-latest'
 
-    steps:
-      
+    env:
+      REPO: ${{ secrets.AzureAppService_ContainerUsername_b82b8e16cb944ca7a7f4dffc88af4999 }}
 
+    steps:
     - uses: actions/checkout@v2
 
     - name: Set up Docker Buildx
@@ -29,8 +30,6 @@ jobs:
         password: ${{ secrets.AzureAppService_ContainerPassword_470dc515c9fb4af9a97d45bc048a4a37 }}
 
     - name: downcase REPO
-      env:
-        REPO: ${{ secrets.AzureAppService_ContainerUsername_b82b8e16cb944ca7a7f4dffc88af4999 }}
       run: |
         echo "REPO=${REPO},," >>${GITHUB_ENV}
 
