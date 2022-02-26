@@ -31,7 +31,7 @@ jobs:
       with:
         push: true
         tags: mywebsite.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_b82b8e16cb944ca7a7f4dffc88af4999 }}/nodejsapp:${{ github.sha }}
-        file: ./Dockerfile
+        context: ./personal_website/
 
   deploy:
     runs-on: ubuntu-latest
