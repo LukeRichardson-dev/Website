@@ -35,7 +35,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: mywebsite.azurecr.io/${{repo}}/nodejsapp:${{ github.sha }}
+        tags: mywebsite.azurecr.io/$repo/nodejsapp:${{ github.sha }}
         context: ./personal_website/
 
   deploy:
