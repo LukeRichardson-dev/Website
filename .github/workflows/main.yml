@@ -27,3 +27,9 @@ jobs:
       run: |
         docker build personal_website/ -t mywebsite.azurecr.io/nodejsapp:${{ github.sha }}
         docker push mywebsite.azurecr.io/nodejsapp:${{ github.sha }}
+
+    - uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'node-rnc'
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH }}
+        images: 'contoso.azurecr.io/nodejssampleapp:${{ github.sha }}'
