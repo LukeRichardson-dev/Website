@@ -32,7 +32,7 @@ jobs:
       env:
         REPO: ${{ secrets.AzureAppService_ContainerUsername_b82b8e16cb944ca7a7f4dffc88af4999 }}
       run: |
-        echo "REPO=$REPO,," >>${GITHUB_ENV}
+        echo "REPO=${REPO},," >>${GITHUB_ENV}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
