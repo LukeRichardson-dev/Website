@@ -14,6 +14,9 @@ jobs:
     runs-on: 'ubuntu-latest'
 
     steps:
+      env:
+        REPO: ${{ secrets.AzureAppService_ContainerUsername_b82b8e16cb944ca7a7f4dffc88af4999 }}
+
     - uses: actions/checkout@v2
 
     - name: Set up Docker Buildx
@@ -28,7 +31,7 @@ jobs:
 
     - name: downcase REPO
       run: |
-        echo "REPO=${{ secrets.AzureAppService_ContainerUsername_b82b8e16cb944ca7a7f4dffc88af499 }},," >>${GITHUB_ENV} && echo $REPO
+        echo "REPO=$REPO,," >>${GITHUB_ENV}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
