@@ -28,7 +28,7 @@ jobs:
 
     - name: Set to lowercase
       run: |
-        repo=$(echo 'console.log("${{ secrets.AzureAppService_ContainerUsername_b82b8e16cb944ca7a7f4dffc88af4999 }".toLowerCase())' | node -)
+        repo=$(echo 'console.log("${{ secrets.AzureAppService_ContainerUsername_b82b8e16cb944ca7a7f4dffc88af4999 }}".toLowerCase())' | node -)
 
 
     - name: Build and push container image to registry
