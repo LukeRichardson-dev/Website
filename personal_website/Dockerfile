@@ -7,9 +7,10 @@ FROM base AS build
 COPY package.json package-lock.json /app/
 
 RUN npm ci
-RUN npm build
 
 COPY . .
+
+RUN npm build
 
 EXPOSE 3000
 
