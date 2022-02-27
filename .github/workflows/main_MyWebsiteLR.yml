@@ -16,6 +16,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Log in with Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
@@ -31,7 +36,7 @@ jobs:
       with:
         push: true
         tags: mywebsite.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_76d47736b2b5499999f7f150a472ef52 }}/web:${{ github.sha }}
-        file: ./Dockerfile
+        context: ./personal_website
 
   deploy:
     runs-on: ubuntu-latest
