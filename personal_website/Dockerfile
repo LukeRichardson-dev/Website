@@ -2,16 +2,14 @@ FROM node:14 AS base
 
 WORKDIR /app
 
-FROM base AS build
-
 COPY package.json package-lock.json /app/
 
 RUN npm ci
 
 COPY . .
 
-RUN npm build
+RUN npm run-script build
 
-EXPOSE 3000
+FROM nginx:latest
 
-CMD [ "npm", "start" ]
+COPY --from=base /app/build /usr/share/nginx/html
