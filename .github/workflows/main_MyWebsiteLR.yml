@@ -16,11 +16,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Log in with Azure
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
@@ -28,15 +23,15 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://mywebsite.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_76d47736b2b5499999f7f150a472ef52 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_f4e37531c27f44bca08be9eb5fcff9ed }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_c51f5cb777df4fd792abde090af7cffc }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_c0e7911827474c66a021c6b8ae86e089 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: mywebsite.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_76d47736b2b5499999f7f150a472ef52 }}/web:${{ github.sha }}
-        context: ./personal_website
+        tags: mywebsite.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_c51f5cb777df4fd792abde090af7cffc }}/mywebsite/nodejsapp:${{ github.sha }}
+        file: ./Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
@@ -52,5 +47,5 @@ jobs:
       with:
         app-name: 'MyWebsiteLR'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_5f892ea46e6f46f6ad8046a7254ad2ed }}
-        images: 'mywebsite.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_76d47736b2b5499999f7f150a472ef52 }}/web:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_95a9bfdcae954ea7b71dec7de12dc572 }}
+        images: 'mywebsite.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_c51f5cb777df4fd792abde090af7cffc }}/mywebsite/nodejsapp:${{ github.sha }}'
