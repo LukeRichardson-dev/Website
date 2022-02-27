@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'MyWebsiteLR'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_95A9BFDCAE954EA7B71DEC7DE12DC572 }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH }}
         images: 'mywebsite.azurecr.io/${{ secrets.REGISTRY_USERNAME }}/mywebsite/nodejsapp:${{ github.sha }}'
