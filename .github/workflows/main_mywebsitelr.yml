@@ -23,15 +23,15 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://mywebsite.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_bd2a717badc84f8b9786a48fa60c2566 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_79ed727e6559482a90e538f8dd70af17 }}
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: mywebsite.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_bd2a717badc84f8b9786a48fa60c2566 }}/personalwebsite/latest:${{ github.sha }}
-        file: ./Dockerfile
+        tags: mywebsite.azurecr.io/${{ secrets.REGISTRY_USERNAME }}/personalwebsite/latest:${{ github.sha }}
+        context: ./personal_website
 
   deploy:
     runs-on: ubuntu-latest
@@ -48,4 +48,4 @@ jobs:
         app-name: 'mywebsitelr'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_cc58ea6a808e4bbc9aa8ceb24d057854 }}
-        images: 'mywebsite.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_bd2a717badc84f8b9786a48fa60c2566 }}/personalwebsite/latest:${{ github.sha }}'
+        images: 'mywebsite.azurecr.io/${{ secrets.REGISTRY_USERNAME }}/personalwebsite/latest:${{ github.sha }}'
