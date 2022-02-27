@@ -31,7 +31,7 @@ jobs:
       with:
         push: true
         tags: mywebsite.azurecr.io/${{ secrets.REGISTRY_USERNAME }}/mywebsite/nodejsapp:${{ github.sha }}
-        file: ./Dockerfile
+        context: ./personal_website
 
   deploy:
     runs-on: ubuntu-latest
