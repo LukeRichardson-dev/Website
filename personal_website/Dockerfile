@@ -12,4 +12,5 @@ RUN npm run-script build
 
 FROM nginx:latest
 
+EXPOSE 80
 COPY --from=base /app/build /usr/share/nginx/html

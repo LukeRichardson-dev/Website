@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+service Auth {
+    
+    rpc login (Request) returns (Response);
+
+    rpc logout (Request) returns (Response);
+
+    rpc getGrant (Request) returns (Response);
+
+}
