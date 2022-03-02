@@ -1,0 +1,1 @@
+python -m grpc_tools.protoc -I../buffers --python_out=./authorisation --grpc_python_out=./authorisation --mypy_out=./authorisation ../buffers/auth.proto
