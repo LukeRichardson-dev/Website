@@ -20,7 +20,9 @@ message LoginResponse {
 
 }
 
-message SignupRequest {}
+message SignupRequest {
+    
+}
 
 message SignupResponse {}
 
