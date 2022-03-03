@@ -16,17 +16,34 @@ message LoginRequest {
 
 message LoginResponse {
 
-    AuthError error = 1;
+    bytes refreshToken = 1;
+    string expiry = 2;
+
+    AuthError error = 3;
 
 }
 
 message SignupRequest {
     
+    string username = 1;
+    string password = 2;
+
 }
 
-message SignupResponse {}
+message SignupResponse {
 
-message LogoutRequest {}
+    bytes refreshToken = 1;
+    string expiry = 2;
+
+    AuthError error = 3;
+
+}
+
+message LogoutRequest {
+
+    bytes refreshToken = 1;
+
+}
 
 message LogoutResponse {}
 

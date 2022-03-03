@@ -14,16 +14,24 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\nauth.proto\x12\x04\x61uth\"\x0e\n\x0cLoginRequest\"\x0f\n\rLoginResponse\"\x0f\n\rSignupRequest\"\x10\n\x0eSignupResponse\"\x0f\n\rLogoutRequest\"\x10\n\x0eLogoutResponse2\xa2\x01\n\x04\x41uth\x12\x30\n\x05login\x12\x12.auth.LoginRequest\x1a\x13.auth.LoginResponse\x12\x33\n\x06signup\x12\x13.auth.SignupRequest\x1a\x14.auth.SignupResponse\x12\x33\n\x06logout\x12\x13.auth.LogoutRequest\x1a\x14.auth.LogoutResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\nauth.proto\x12\x04\x61uth\"*\n\tAuthError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\t\x12\x0f\n\x07message\x18\x02 \x01(\t\"2\n\x0cLoginRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"U\n\rLoginResponse\x12\x14\n\x0crefreshToken\x18\x01 \x01(\x0c\x12\x0e\n\x06\x65xpiry\x18\x02 \x01(\t\x12\x1e\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x0f.auth.AuthError\"3\n\rSignupRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"V\n\x0eSignupResponse\x12\x14\n\x0crefreshToken\x18\x01 \x01(\x0c\x12\x0e\n\x06\x65xpiry\x18\x02 \x01(\t\x12\x1e\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x0f.auth.AuthError\"%\n\rLogoutRequest\x12\x14\n\x0crefreshToken\x18\x01 \x01(\x0c\"\x10\n\x0eLogoutResponse2\xa2\x01\n\x04\x41uth\x12\x30\n\x05login\x12\x12.auth.LoginRequest\x1a\x13.auth.LoginResponse\x12\x33\n\x06signup\x12\x13.auth.SignupRequest\x1a\x14.auth.SignupResponse\x12\x33\n\x06logout\x12\x13.auth.LogoutRequest\x1a\x14.auth.LogoutResponseb\x06proto3')
 
 
 
+_AUTHERROR = DESCRIPTOR.message_types_by_name['AuthError']
 _LOGINREQUEST = DESCRIPTOR.message_types_by_name['LoginRequest']
 _LOGINRESPONSE = DESCRIPTOR.message_types_by_name['LoginResponse']
 _SIGNUPREQUEST = DESCRIPTOR.message_types_by_name['SignupRequest']
 _SIGNUPRESPONSE = DESCRIPTOR.message_types_by_name['SignupResponse']
 _LOGOUTREQUEST = DESCRIPTOR.message_types_by_name['LogoutRequest']
 _LOGOUTRESPONSE = DESCRIPTOR.message_types_by_name['LogoutResponse']
+AuthError = _reflection.GeneratedProtocolMessageType('AuthError', (_message.Message,), {
+  'DESCRIPTOR' : _AUTHERROR,
+  '__module__' : 'auth_pb2'
+  # @@protoc_insertion_point(class_scope:auth.AuthError)
+  })
+_sym_db.RegisterMessage(AuthError)
+
 LoginRequest = _reflection.GeneratedProtocolMessageType('LoginRequest', (_message.Message,), {
   'DESCRIPTOR' : _LOGINREQUEST,
   '__module__' : 'auth_pb2'
@@ -70,18 +78,20 @@ _AUTH = DESCRIPTOR.services_by_name['Auth']
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _LOGINREQUEST._serialized_start=20
-  _LOGINREQUEST._serialized_end=34
-  _LOGINRESPONSE._serialized_start=36
-  _LOGINRESPONSE._serialized_end=51
-  _SIGNUPREQUEST._serialized_start=53
-  _SIGNUPREQUEST._serialized_end=68
-  _SIGNUPRESPONSE._serialized_start=70
-  _SIGNUPRESPONSE._serialized_end=86
-  _LOGOUTREQUEST._serialized_start=88
-  _LOGOUTREQUEST._serialized_end=103
-  _LOGOUTRESPONSE._serialized_start=105
-  _LOGOUTRESPONSE._serialized_end=121
-  _AUTH._serialized_start=124
-  _AUTH._serialized_end=286
+  _AUTHERROR._serialized_start=20
+  _AUTHERROR._serialized_end=62
+  _LOGINREQUEST._serialized_start=64
+  _LOGINREQUEST._serialized_end=114
+  _LOGINRESPONSE._serialized_start=116
+  _LOGINRESPONSE._serialized_end=201
+  _SIGNUPREQUEST._serialized_start=203
+  _SIGNUPREQUEST._serialized_end=254
+  _SIGNUPRESPONSE._serialized_start=256
+  _SIGNUPRESPONSE._serialized_end=342
+  _LOGOUTREQUEST._serialized_start=344
+  _LOGOUTREQUEST._serialized_end=381
+  _LOGOUTRESPONSE._serialized_start=383
+  _LOGOUTRESPONSE._serialized_end=399
+  _AUTH._serialized_start=402
+  _AUTH._serialized_end=564
 # @@protoc_insertion_point(module_scope)
