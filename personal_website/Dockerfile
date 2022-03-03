@@ -2,10 +2,10 @@ FROM node:14 AS base
 
 WORKDIR /app
 
+ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json package-lock.json tsconfig.json /app/
 
-RUN npm cache clean --force
-RUN npm update
+RUN npm ci
 
 COPY . .
 
