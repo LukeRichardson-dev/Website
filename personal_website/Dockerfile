@@ -4,6 +4,7 @@ WORKDIR /app
 
 COPY package.json package-lock.json tsconfig.json /app/
 
+RUN npm update
 RUN npm ci
 
 COPY . .
