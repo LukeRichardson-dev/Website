@@ -7,9 +7,9 @@ function App() {
   return (
     <div className="App">
       <h1>
-        Feed Page
+        Sam Whelan
       </h1>
-      <Feed />
+      {/* <Feed /> */}
     </div>
   );
 }
