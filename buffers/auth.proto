@@ -47,8 +47,23 @@ message LogoutRequest {
 
 message LogoutResponse {}
 
+message RefreshRequest {
+
+    bytes refreshToken = 1;
+
+}
+
+message RefreshResposne {
+
+    bytes accessToken = 1;
+
+    AuthError error = 2;
+
+}
+
 service Auth {
     rpc login (LoginRequest) returns (LoginResponse);
     rpc signup (SignupRequest) returns (SignupResponse);
     rpc logout (LogoutRequest) returns (LogoutResponse);
+    rpc refresh (RefreshRequest) returns (RefreshResposne);
 }

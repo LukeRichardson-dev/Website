@@ -1,7 +1,7 @@
-from sqlalchemy import Column, ForeignKey, String, Integer, Date, Binary
+from sqlalchemy import Column, ForeignKey, String, Integer, LargeBinary
 from sqlalchemy.orm import relationship
 
-from base import Base
+from .base import Base
 
 
 class Account(Base):
@@ -11,8 +11,8 @@ class Account(Base):
     account_id = Column(Integer, primary_key=True, autoincrement=True)
     username = Column(String(30), unique=True)
 
-    password = Column(Binary)
-    salt = Column(Binary)
+    password = Column(LargeBinary)
+    salt = Column(LargeBinary)
 
     tokens = relationship(
         'Token', 
@@ -24,6 +24,6 @@ class Token(Base):
 
     __tablename__ = 'token'
     
-    token = Column(Binary, primary_key=True)
-    owner_id = Column(Integer, ForeignKey('owner.id', ondelete='CASCADE'))
+    token = Column(LargeBinary, primary_key=True)
+    owner_id = Column(Integer, ForeignKey('account.account_id', ondelete='CASCADE'))
     owner = relationship('Account', back_populates='tokens')

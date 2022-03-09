@@ -1,0 +1,4 @@
+dist
+README.rst
+Dockerfile
+__pycache__

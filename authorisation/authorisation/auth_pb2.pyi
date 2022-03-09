@@ -106,3 +106,30 @@ class LogoutResponse(google.protobuf.message.Message):
     def __init__(self,
         ) -> None: ...
 global___LogoutResponse = LogoutResponse
+
+class RefreshRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    REFRESHTOKEN_FIELD_NUMBER: builtins.int
+    refreshToken: builtins.bytes
+    def __init__(self,
+        *,
+        refreshToken: builtins.bytes = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["refreshToken",b"refreshToken"]) -> None: ...
+global___RefreshRequest = RefreshRequest
+
+class RefreshResposne(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    ACCESSTOKEN_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    accessToken: builtins.bytes
+    @property
+    def error(self) -> global___AuthError: ...
+    def __init__(self,
+        *,
+        accessToken: builtins.bytes = ...,
+        error: typing.Optional[global___AuthError] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["error",b"error"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["accessToken",b"accessToken","error",b"error"]) -> None: ...
+global___RefreshResposne = RefreshResposne

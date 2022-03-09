@@ -1,0 +1,25 @@
+version: '3'
+  
+
+services:  
+
+  auth_db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=auth_db
+
+  authorisation:
+    image: mywebsite.azurecr.io/mywebsite/authorisation:latest
+    restart: always
+    depends_on:
+      - auth_db
+    environment:
+      - POSTGRES_URL="auth_db:5432"
+  
+  website:
+    image: mywebsite.azurecr.io/mywebsite/personalwebsite/latest:latest
+    restart: always
+
