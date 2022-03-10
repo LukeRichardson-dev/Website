@@ -15,7 +15,7 @@ def main():
 
     add_AuthServicer_to_server(AuthService(), server)
 
-    PORT = environ.get('PORT', 9000)
+    PORT = int(environ.get('PORT', 9000))
 
     server.add_insecure_port(f'localhost:{PORT}')
     server.start()
