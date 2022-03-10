@@ -17,9 +17,15 @@ services:
     depends_on:
       - auth_db
     environment:
-      - POSTGRES_URL="auth_db:5432"
+      - POSTGRES_URL=auth_db:5432
+    ports:
+      - 9000:9000
+
   
   website:
     image: mywebsite.azurecr.io/mywebsite/personalwebsite/latest:latest
     restart: always
+
+    ports:
+      - 22:22
 
