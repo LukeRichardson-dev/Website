@@ -17,7 +17,7 @@ services:
     depends_on:
       - auth_db
     environment:
-      - POSTGRES_URL="auth_db:5432"
+      - POSTGRES_URL="0.0.0.0:5432"
   
   website:
     image: mywebsite.azurecr.io/mywebsite/personalwebsite/latest:latest
