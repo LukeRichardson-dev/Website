@@ -1,8 +1,4 @@
 version: '3'
-
-networks:
-  serv:
-    name: serv
   
 
 services:  
