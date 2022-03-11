@@ -1,10 +1,15 @@
 version: '3'
+
+networks:
+  serv:
+    name: serv
   
 
 services:  
 
   auth_db:
-    image: postgres:14.1-alpine
+    image: postgres
+    container_name: auth_db
     restart: always
     environment:
       - POSTGRES_USER=postgres
@@ -27,5 +32,6 @@ services:
     restart: always
 
     ports:
-      - 22:22
+      - 80:80
+      - 443:443
 
