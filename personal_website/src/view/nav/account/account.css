@@ -1,0 +1,8 @@
+.account-button {
+    margin: 10px;
+    background-color: grey;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    align-self: flex-end;
+}

@@ -1,17 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Feed } from './feed/feed';
+import { Routes, BrowserRouter, Route } from 'react-router-dom';
+import NavBar from './nav/navbar';
+import Home from './home/home';
+import Login from '../apps/auth/login/login';
+import Signup from '../apps/auth/signup/signup';
 
 function App() {
   return (
     <div className="App">
-      <h1>
-        Feed header
-
-        Sam Whelan, Simon Gairing, Benjamin Sharp, Brendon Kenny, Anthony S, Tony B, Micheala Kenny, Dwayne The Rock Johnson, Taylor Atherton, Hannah Atherton, Kate Whelen, Emma Whelen, Andy Whelan  
-      </h1>
-      <Feed />
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path='signup' element={<Signup />}/>
+          <Route path='login' element={<Login />}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

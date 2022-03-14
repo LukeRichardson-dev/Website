@@ -1,0 +1,42 @@
+.form-box {
+    margin-top: 40px;
+    margin-left: 40px;
+    padding: 50px;
+    height: 500px;
+    position: absolute;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-box > input[type=text], .form-box > input[type=password] {
+    width: 400px;
+    height: 40px;
+    font-size: large;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 2px solid #EEEEEE;
+    transition: border 200ms ease 000ms;
+    outline: none;
+}
+
+.form-box > input[type=text]:focus, .form-box > input[type=password]:focus {
+    border: 2px solid #111;
+}
+
+.form-box > input[type=submit] {
+    outline: none;
+    border: none;
+    margin-top: 20px;
+    background-color: #EEEEEE;
+    height: 40px;
+    border-radius: 10px;
+    transition: background-color 200ms ease 50ms, 
+                border-radius 100ms ease-in 50ms;
+}
+
+.form-box > input[type=submit]:hover {
+    background-color: grey;
+    border-radius: 15px;
+}

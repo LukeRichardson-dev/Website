@@ -1,0 +1,19 @@
+.options-button {
+    width: 50px;
+    height: 50px;
+    margin: 15px;
+    border-radius: 10px;
+    transition: box-shadow 200ms ease 100ms;
+}
+
+.options-button:hover {
+    box-shadow: 5px 5px 16px #D1CDC7,
+                -5px -5px 16px #FFFFFF;
+}
+
+.apps-icon {
+    color: #00000094;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
